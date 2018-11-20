@@ -80,7 +80,13 @@ $(document).ready(function () {
 				}
 				node.connections.forEach(function(conn) {
 					var description = conn.description.length > 0 ? ('<small>' + conn.description + '</small>') : '';
-					var option = '<li><a href="./#' + conn.target + '">' + conn.title + description + '</a></li>';
+					var image = conn.image ? '<img src=' + conn.image + ' height="18px" />' : '';
+					console.log(conn)
+					if (conn.isLink) {
+						var option = '<li><a href="' + conn.link + '" target="_blank">' + image + conn.title + description + '</a></li>';
+					} else {
+						var option = '<li><a href="./#' + conn.target + '">' + image + conn.title + description + '</a></li>';
+					}
 					optionList.append(option);
 				});
 			}
@@ -107,16 +113,12 @@ $(document).ready(function () {
 			minMatchCharLength: 1,
 			keys: [
 				{
+					name: 'metadata',
+					weight: 0.7
+				},
+				{
 					name: 'text',
 					weight: 0.2
-				},
-				{
-					name: 'content',
-					weight: 0.1
-				},
-				{
-					name: 'meta',
-					weight: 0.7
 				}
 			]
 		});
