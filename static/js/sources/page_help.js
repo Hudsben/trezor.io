@@ -81,7 +81,6 @@ $(document).ready(function () {
 				node.connections.forEach(function(conn) {
 					var description = conn.description.length > 0 ? ('<small>' + conn.description + '</small>') : '';
 					var image = conn.image ? '<img src=' + conn.image + ' height="18px" />' : '';
-					console.log(conn)
 					if (conn.isLink) {
 						var option = '<li><a href="' + conn.link + '" target="_blank">' + image + conn.title + description + '</a></li>';
 					} else {
