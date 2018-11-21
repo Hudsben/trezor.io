@@ -230,3 +230,24 @@
     background: rgba(black, .7)
     z-index: 4
     display: none
+
+  .breadcrumbs
+    ul
+      list-style: none
+      padding: 0
+      text-align: left
+
+      li
+        display: inline-block
+
+        &:not(:first-child)
+          &:before
+            display: inline-block
+            content: "\f054"
+            position: relative
+            padding: 0 5px
+            color: #99979c
+            font-family: "FontAwesome"
+            font-size: 8px
+            vertical-align: bottom
+            line-height: 16px

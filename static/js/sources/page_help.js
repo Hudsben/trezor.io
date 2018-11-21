@@ -61,12 +61,49 @@ $(document).ready(function () {
 		return window.location.hash.split('#')[1];
 	}
 
+	function getParentNodes(nodeId, recursive) {
+		var nodes = [];
+		if (!recursive) {
+			nodes = [nodeId];
+		}
+		appData.map(node => {
+			node.connections.map(conn => {
+				if (conn.target === nodeId) {
+					nodes.push(node.id);
+					var parent = getParentNodes(node.id, true);
+					parent.map(p => {
+						nodes.push(p)
+					});
+				}
+			})
+		});
+
+		return nodes;
+	}
+
+	function getBreadcrumbs(nodeId) {
+		var parentNodes = getParentNodes(nodeId);
+		var list = [];
+
+		if (parentNodes.length > 1) {
+			parentNodes.reverse().map(nodeId => {
+				var node = getNode(nodeId);
+				list.push('<li><a href="./#' + nodeId + '">' + node.text + '</a></li>');
+			});
+
+			return '<ul>' + list.join('') + '</ul>'
+		} else {
+			return '';
+		}
+	}
+
 	function renderNode(id) {
 		var node = getNode(id);
 		if (node) {
 			$('h4.header').html(node.text);
 			$('div.text').html(node.content);
 			$('.back-btn').hide();
+			$('.breadcrumbs').html(getBreadcrumbs(id));
 
 			var optionList = $('ul.option-list');
 				optionList.html('');
