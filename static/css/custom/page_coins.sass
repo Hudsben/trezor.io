@@ -37,6 +37,9 @@
   table
     position: relative
 
+    td
+      vertical-align: middle
+
   .input-wrapper
     position: relative
     display: inline-block
@@ -66,8 +69,8 @@
       color: $c_grey
       position: absolute
       font-size: 1.2em
-      left: 26px
-      top: 17px
+      left: 30px
+      top: 15px
       z-index: 1
       content: "\f002"
       +transition(all 0.12s ease 0s)
@@ -78,7 +81,7 @@
       margin-bottom: -10px
       border: 0
       font-size: 1.2em
-      padding: 12px 0 12px 40px
+      padding: 12px 0 12px 50px
       height: 50px
       text-align: left
       +border-radius(4px)
@@ -140,6 +143,11 @@
         .fa
           font-size: 16px
 
+
+      @media only screen and (max-width: $sm)
+        .clipboard
+          display: none
+
       .copied
         margin-left: 10px
         color: $c_green
@@ -187,6 +195,9 @@
 
   .devices, img
     margin-right: 10px
+
+  #visible-name
+    width: 360px
 
   #visible-t1
     width: 130px

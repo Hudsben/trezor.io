@@ -66,9 +66,7 @@
             </td>
             <td>
               {% for k in coin.wallet %}
-                {% with link=coin.wallet|get_item:k %}
-                  <a href="{{ link }}" target="_blank" rel="nofollow noopener noreferrer">{{ k }}</a>
-                {% endwith %}
+                <a href="{{ k.url }}" target="_blank" rel="nofollow noopener noreferrer">{{ k.name }}</a>
                 {% if not forloop.last %}, {% endif %}
               {% empty %}
                 <span>No wallet yet.</span>
