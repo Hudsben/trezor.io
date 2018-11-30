@@ -1,0 +1,22 @@
+{
+  "banners": [
+    {
+      "title": "Searching for an exchange? It is right here.",
+      "subtitle": "Two popular crypto asset exchanges, Changelly and CoinSwitch, are now available directly in your Trezor wallet.",
+      "link": "",
+      "link-text": "Try exchanges now!",
+      "icon-url": "https://trezor.io/static/images/banner_icons/exchange.png",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "title": "Trezor Password Manager",
+      "subtitle": "Would you like to protect all your passwords with the Trezor trademark cryptography? Try our popular Password Manager.",
+      "link": "https://trezor.io/passwords/",
+      "link-text": "Find out more!",
+      "icon-url": "https://trezor.io/static/images/banner_icons/tpm.png",
+      "from": 0,
+      "to": 0
+    }
+  ]
+}
