@@ -97,9 +97,9 @@ $(document).ready(function () {
         },
         initImages = function() {
             $.getJSON('https://api.coinmarketcap.com/v2/listings/', function (result) {
-                result.data.forEach(function (item) {
+                result.data.reverse().forEach(function (item) {
                     var isChar = item.symbol.match(/[a-zA-Z0-9\-]+/g);
-                    if (isChar && isChar[0] == item.symbol) {
+                    if (isChar && isChar[0] === item.symbol) {
                         var el = $('img#COIN-' + item.symbol);
                         if (el[0]) {
                             el.attr('data-echo', 'https://s2.coinmarketcap.com/static/img/coins/32x32/' + item.id + '.png')
