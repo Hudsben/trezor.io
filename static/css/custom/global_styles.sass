@@ -1,3 +1,8 @@
+// ----
+// Global styles
+// ----
+
+
 *:focus
   outline: 0 !important
 input::-moz-focus-inner
@@ -8,8 +13,7 @@ body, html
   margin: 0
   height: 100%
   background: $c_white
-  font-family: $default_font
-  +antialiased()
+  font-family: $f-base-family
 
 body
   min-height: 100%
@@ -18,20 +22,9 @@ body
   -webkit-overflow-scrolling: touch
   -ms-overflow-style: -ms-autohiding-scrollbar
 
-header
-  position: relative
-  display: block
-  height: 100%
-  width: 100%
-  z-index: 3
-  background-color: $c_grey_bg
-
-h1, h2, h3, h4, h5
-  font-family: 'Open Sans', sans-serif
-
 p
-  font: 400 17px/1.75 $default_font
   color: $c_grey_font
+  +antialiased()
 
 a
   color: $c_green
@@ -40,7 +33,9 @@ a
 
 a.arrow
   color: $c_green
+  white-space: nowrap
   cursor: pointer
+  +antialiased()
 
   &:hover
     color: $c_green
@@ -51,9 +46,15 @@ a.arrow
 
   &:after
     display: inline-block
-    content: '\276f'
+    content: ' '
     position: relative
-    padding-left: 4px
+    width: 15px
+    height: 10px
+    margin: 0 0 1px 7px
+    background-image: url("/static/images/arrow-left.svg")
+    background-size: 15px auto
+    background-repeat: no-repeat
+    background-position: center center
 
 a.arrow-back
   color: $c_green
@@ -77,6 +78,10 @@ section
   padding-top: 80px
   padding-bottom: 80px
 
+  @media only screen and (max-width: $sm)
+    padding-top: 40px
+    padding-bottom: 40px
+
   .heading
     padding-bottom: 40px
 
@@ -98,6 +103,28 @@ section
   margin: 100px auto 100px auto
   text-align: center
 
+.noresults-wrapper
+  width: 100%
+  display: none
+  overflow: hidden
+  position: relative
+  margin: 100px auto 100px auto
+  text-align: center
+  font-size: 28px
+
   .shadow
     display: none
     visibility: hidden
+
+.vcenter
+  display: inline-block
+  vertical-align: middle
+  float: none
+
+.clearing
+  clear: both
+
+.tooltip.top
+  margin-top: -5px
+
+

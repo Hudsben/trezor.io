@@ -1,9 +1,15 @@
 .navbar
-  background: $c_black
+  background: $c_black_bg
   font-weight: 400
-  padding: .2rem
-  margin-bottom: -48px
+  padding: .7rem
+  margin-bottom: -3.8rem
+  +filter(blur(0))
   +unselectable()
+
+  + section 
+    padding-top: 80px
+    &.security
+      padding-top: 60px
 
   .navbar-toggler
     float: left
@@ -36,9 +42,14 @@
     .trezor-logo
       height: 26px
       margin-top: 5px
+      margin-left: -15px
 
   .nav-link
-    color: $c_navlink
+    color: $c_white
+    font-size: .9rem
+    font-weight: 400
+    padding: .425rem
+    text-rendering: optimizeLegibility
     +transition(color 0.4s ease)
 
     &[data-amount]:not([data-amount="0"])
@@ -64,34 +75,53 @@
   select
     background: transparent
     border: 0
-    padding-left: 14px
     margin-left: -14px
     color: rgba(255,255,255,.5)
-    padding-top: .425rem
-    padding-bottom: .425rem
+    padding: .425rem
     cursor: pointer
     +border-radius(0)
     +appearance-none()
 
     &:hover
-      color: $c_white
+      color: $c_black
 
     &:focus, &:active
       outline: none
 
-.dropdown-item
-  color: $c_grey_font
-  padding: 5px 20px 5px 5px
 
-  &:hover
-    background: white
+  &.transparent
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    background: transparent
     color: $c_black
 
-  span
-    display: inline-block
-    float: left
-    width: 35px
-    text-align: center
+    @media only screen and (max-width: $sm)
+      position: relative
+      background: black
+
+      & > .navbar-toggler
+        color: $c_white !important
+
+      .active > .nav-link,
+      .active > .nav-link:hover
+        color: $c_white !important
+
+
+    .navbar-toggler
+      color: $c_black
+
+    .nav-link
+      color: $c_nav_grey
+
+      &:hover
+        color: $c_nav_active_grey
+
+    .active > .nav-link,
+    .active > .nav-link:hover
+      color: $c_nav_active_grey
+
 
 @media(max-width: $sm)
   .navbar .navbar-nav>.nav-item
@@ -103,4 +133,3 @@
 
   .navbar .collapse.in, .navbar .collapsing
     clear: both
-

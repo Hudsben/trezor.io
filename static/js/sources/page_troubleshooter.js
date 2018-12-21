@@ -67,7 +67,6 @@ $(document).ready(function () {
         var step = $("ul#content > .content-wrapper > h4.header").html();
         steps += ' > ' + step;
         if (id !== 0) {
-          ga('send', 'event', 'Troubleshooter', 'open', step);
           setTimeout(function () {
             $(".back-btn").detach().appendTo(".content-wrapper > span.text");
             $(".back-btn").slideDown();
@@ -135,7 +134,6 @@ $(document).ready(function () {
 
   $('#search').on('blur', function () {
     var search = $(this).val();
-    ga('send', 'event', 'Troubleshooter', 'search', search);
   }).on('focus', function () {
     showSearch();
   });
@@ -195,17 +193,16 @@ $(document).ready(function () {
   prepareSearch();
   prepareLinks();
   setId();
-  ga('send', 'event', 'Troubleshooter', 'visit', '');
 
   window.onhashchange = setId;
   window.gotoTroubleshooter = function () {
     location.href = tb_link + '?technical=' + tech + steps;
     return false;
-  }
+  };
 
   window.gotoTroubleshooterOrder = function () {
     var ts_subject = document.getElementsByTagName('h4')[0].textContent;
     location.href = ts_link + '?subject=' + ts_subject;
     return false;
-  }
+  };
 });

@@ -120,6 +120,7 @@
 
       h6
         margin-bottom: 0
+        font-size: 1.2em !important
 
       &:hover
         cursor: pointer
@@ -175,8 +176,19 @@
             border-bottom: 1px solid rgba($c_grey, .1)
             text-align: left
 
+            img
+              position: absolute
+              left: 20px
+              width: 20px
+
             &:hover, &:focus
               background-color: rgba($c_green, .15)
+              text-decoration: none
+
+            small
+              display: block
+              color: $c_grey_font
+              margin-top: 10px
 
         .header
           text-align: left
@@ -218,3 +230,24 @@
     background: rgba(black, .7)
     z-index: 4
     display: none
+
+  .breadcrumbs
+    ul
+      list-style: none
+      padding: 0
+      text-align: left
+
+      li
+        display: inline-block
+
+        &:not(:first-child)
+          &:before
+            display: inline-block
+            content: "\f054"
+            position: relative
+            padding: 0 5px
+            color: #99979c
+            font-family: "FontAwesome"
+            font-size: 8px
+            vertical-align: bottom
+            line-height: 16px
